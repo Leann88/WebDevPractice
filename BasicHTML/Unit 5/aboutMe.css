@@ -1,0 +1,20 @@
+h1 {
+    color: #FF00FF;
+    background: url(https://i.pinimg.com/originals/ec/59/28/ec5928ca84b7faacf615190ce1683fbf.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px red dotted;
+}
+
+h4 {
+    color:  rgb(123,3,0);
+    background-color: #DD8000;
+}
+
+li {
+    color: rgba(12,24,142,0.5);
+}
+
+body {
+    background-color: rgba(0,70,80,0.5);
+}

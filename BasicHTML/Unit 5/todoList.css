@@ -1,0 +1,17 @@
+#page-title {
+    background: blue;
+}
+
+li {
+    border: 2px solid red;
+}
+
+li:nth-child(3) {
+    background: yellow;
+    color: green;
+}
+
+.style-li-one {
+    background-color: slategray;
+    text-decoration: line-through;
+}

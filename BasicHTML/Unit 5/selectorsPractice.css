@@ -1,0 +1,25 @@
+/* Style applied to everything */
+* {
+    border: 1px solid lightgray;
+}
+
+/* Descendant Selector */
+ul li a {
+    color: red;
+}
+
+/* Adjacent Selector */
+
+h4 + ul {
+    border: 4px solid red;
+}
+
+/* Attribute Selector */
+
+a[href="http://www.google.com"] {
+    background: slategray;
+}
+
+ul:nth-of-type(3) {
+    background:  purple;
+}
