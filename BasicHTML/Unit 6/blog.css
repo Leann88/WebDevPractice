@@ -1,0 +1,34 @@
+body {
+    width: 80%;
+    margin: 20px auto;
+    border: #bdc3c7 20px solid;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 20px;
+    max-width: 700px;
+}
+
+h2 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.date {
+    letter-spacing: 0.2rem;
+    color: #3498db;
+    text-transform: uppercase;
+}
+
+.para-one {
+    padding-left: 5px;
+    border-left: 5px #bdc3c7 solid;
+}
+
+div {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.article {
+    border-bottom: 3px #f1f1f1 solid;
+}

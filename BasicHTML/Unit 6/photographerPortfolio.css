@@ -1,0 +1,16 @@
+h2 {
+    text-transform: uppercase;
+    font-family: "Raleway";
+    margin-left: 1.66%;
+    font-size: 23px;
+    font-weight: 800;
+    border-bottom: 2px solid #f1f1f1;
+    width: 60%;
+    padding-bottom: 10px;
+}
+
+img {
+    margin: 1.66%;
+    width: 30%;
+    float: left;
+}
