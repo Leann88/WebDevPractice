@@ -1,5 +1,5 @@
 function outer() {
-    var data = "closures are";
+    var data = "closures are ";
     return function inner() {
         var innerData = "awesome";
         return data + innerData;
@@ -17,14 +17,14 @@ function counter() {
 }
 
 var counter1 = counter();
-counter1();
-counter1();
+console.log(counter1());
+console.log(counter1());
 
 var counter2 = counter();
 
-counter2();
-counter2();
+console.log(counter2());
+console.log(counter2());
 
-counter1();
+console.log(counter1());
 
-count;
+count; // used to illustrate count is private
