@@ -1,7 +1,11 @@
 var express = require("express");
-var app = express();
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
+var Campground = require("./models/campground");
+var Comment = require("./models/comment");
+var seedDB = require("./seeds");
+
+var app = express();
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -10,27 +14,7 @@ app.set("view engine", "ejs");
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
-
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String,
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
-// Campground.create(
-//     {
-//         name: "Granite Hill", 
-//         image: "http://visitmckenzieriver.com/oregon/wp-content/uploads/2015/06/paradise_campground.jpg",
-//         description: "This is a huge Granite hill, no bathrooms. No water. Beatiful Granite"
-//     } , function(err, campground) {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log(campground);
-//         }
-//     }
-// );
+seedDB();
 
 app.listen("3000", "localhost", function(){
     console.log("Server has started");
@@ -55,7 +39,7 @@ app.get("/campgrounds/new", function(req, res){
 });
 
 app.get("/campgrounds/:id", function(req, res){
-    Campground.findById(req.params.id, function(err, campground){
+    Campground.findById(req.params.id).populate("comments").exec(function(err, campground){
         if (err) {
             console.log(err);
         } else {
