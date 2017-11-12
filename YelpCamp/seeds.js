@@ -32,7 +32,6 @@ function seedDB() {
                     if (err) {
                         console.log(err);
                     } else {
-                        console.log("Add a campground");
                         Comment.create(
                             {
                                 text: "This place is great, but I wish there was internet",
@@ -43,7 +42,6 @@ function seedDB() {
                                 } else {
                                     campground.comments.push(comment);
                                     campground.save();
-                                    console.log("Created a comment");
                                 }
                         });
                     }
