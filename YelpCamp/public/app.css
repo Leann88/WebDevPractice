@@ -1,8 +1,16 @@
-.new-campground-form {
+.new-form {
     width: 30%;
     margin: 30px auto;
 }
 
-.new-campground-page h1{
+.new-page h1{
     text-align: center;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 9px;
 }
