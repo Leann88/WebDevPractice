@@ -11,11 +11,26 @@ app.set("view engine", "ejs");
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
 
-var campgrounds = [
-    {name: "Salmon Creek", image: "https://assets.vg247.com/current//2017/03/the_witcher_3.jpg"},
-    {name: "Granite Hill", image: "https://assets.vg247.com/current//2017/03/the_witcher_3.jpg"},
-    {name: "Mountain Goat's Rest", image: "https://assets.vg247.com/current//2017/03/the_witcher_3.jpg"},
-]
+var campgroundSchema = new mongoose.Schema({
+    name: String,
+    image: String,
+    description: String,
+});
+
+var Campground = mongoose.model("Campground", campgroundSchema);
+// Campground.create(
+//     {
+//         name: "Granite Hill", 
+//         image: "http://visitmckenzieriver.com/oregon/wp-content/uploads/2015/06/paradise_campground.jpg",
+//         description: "This is a huge Granite hill, no bathrooms. No water. Beatiful Granite"
+//     } , function(err, campground) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(campground);
+//         }
+//     }
+// );
 
 app.listen("3000", "localhost", function(){
     console.log("Server has started");
@@ -26,17 +41,39 @@ app.get("/", function(req, res){
 });
 
 app.get("/campgrounds", function(req, res){
-    res.render("campgrounds", {campgrounds});
+    Campground.find({}, function(err, campgrounds){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("index", {campgrounds});
+        }
+    });
 });
 
 app.get("/campgrounds/new", function(req, res){
     res.render("new");
 });
 
+app.get("/campgrounds/:id", function(req, res){
+    Campground.findById(req.params.id, function(err, campground){
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("show", {campground});
+        }
+    })
+});
+
 app.post("/campgrounds", function(req, res){
     var name = req.body.name;
     var image = req.body.image;
-    var newCampground = {name, image};
-    campgrounds.push(newCampground);
-    res.redirect("/campgrounds");
+    var description = req.body.description;
+    var newCampground = {name, image, description};
+    Campground.create(newCampground, function(err, campground){
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("campgrounds");
+        }
+    })
 });
