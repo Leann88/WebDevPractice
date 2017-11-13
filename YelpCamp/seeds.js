@@ -26,7 +26,6 @@ function seedDB() {
         if (err) {
             console.log(err);
         } else {
-            console.log("Removed Campgrounds!");
             data.forEach(function(seed){
                 Campground.create(seed, function(err, campground){
                     if (err) {
