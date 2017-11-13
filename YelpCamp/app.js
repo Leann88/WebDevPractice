@@ -44,7 +44,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.set("view engine", "ejs");
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
+mongoose.connect("mongodb://localhost/yelpCamp", {useMongoClient: true});
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());

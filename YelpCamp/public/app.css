@@ -1,6 +1,7 @@
 body, html  {
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 .new-form {
     width: 30%;
@@ -28,15 +29,30 @@ body, html  {
     z-index: 10;
 }
 
-.container {
+.main-content {
     margin-top: 25px;
+    width: 100%;
+    height: 100%;
+}
+
+.index-page-h1 {
+    text-align: center;
+}
+
+.index-form {
+    width: 30%;
+    margin: 25px auto;
 }
 
 /*Landing Page css*/
 #landing-page {
-  width: 100%;
-  height: 100%;
-  background-color: #000;
+    margin-top: -25px;
+    margin-bottom: 0px;
+    margin-left: -20px;
+    margin-right:-20px;
+    overflow: auto;
+    min-height: 100%;
+    background-color: #000;
 }
 
 #landing-header {
@@ -69,7 +85,6 @@ body, html  {
   top: 0;
   left: 0;
   background-size: cover;
-  background-position: 50% 50%;
   background-repeat: no-repeat;
   opacity: 0;
   z-index: 0;
