@@ -19,8 +19,9 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 
 router.get("/:id", function(req, res){
     Campground.findById(req.params.id).populate("comments").exec(function(err, campground){
-        if (err) {
-            console.log(err);
+        if (err || !campground) {
+            req.flash("error", "Campground not found");
+            res.redirect("back");
         } else {
             res.render("campgrounds/show", { campground });
         }
@@ -38,6 +39,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var newCampground = { name, image, description, author };
     Campground.create(newCampground, function(err, campground){
         if (err) {
+            req.flash("error", "Something went wrong");
             console.log(err);
         } else {
             res.redirect("campgrounds");
